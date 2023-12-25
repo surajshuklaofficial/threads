@@ -16,7 +16,6 @@ export const ourFileRouter = {
     .middleware(async (req) => {
       // This code runs on your server before upload
       const user = await getUser();
-
       // If you throw, the user will not be able to upload
       if (!user) throw new Error("Unauthorized");
 
@@ -24,6 +23,7 @@ export const ourFileRouter = {
       return { userId: user.id };
     })
     .onUploadComplete(async ({ metadata, file }) => {
+
       // This code RUNS ON YOUR SERVER after upload
       console.log("Upload complete for userId:", metadata.userId);
 
@@ -32,3 +32,5 @@ export const ourFileRouter = {
 } satisfies FileRouter;
 
 export type OurFileRouter = typeof ourFileRouter;
+
+// TODO : check security issue here
