@@ -2,7 +2,7 @@
 
 import { FilterQuery, SortOrder } from "mongoose";
 
-import Community from "./community.actions";
+import Community from "../models/community.model";
 import Thread from "../models/thread.model";
 import User from "../models/user.model";
 
