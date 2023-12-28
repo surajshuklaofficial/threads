@@ -28,8 +28,6 @@ interface Props {
 
 function ThreadCard({
   id,
-  currentUserId,
-  parentId,
   content,
   author,
   community,
@@ -46,9 +44,9 @@ function ThreadCard({
       <div className="flex items-start justify-between">
         <div className="flex w-full flex-1 flex-row gap-4">
           <div className="flex flex-col items-center">
-            <Link href={`/profile/${author.id}`} className="relative h-11 w-11">
+            <Link href={`/profile/${author?.id}`} className="relative h-11 w-11">
               <Image
-                src={author.image}
+                src={author?.image}
                 alt="user_community_image"
                 fill
                 className="cursor-pointer rounded-full"
@@ -59,9 +57,9 @@ function ThreadCard({
           </div>
 
           <div className="flex w-full flex-col">
-            <Link href={`/profile/${author.id}`} className="w-fit">
+            <Link href={`/profile/${author?.id}`} className="w-fit">
               <h4 className="cursor-pointer text-base-semibold text-light-1">
-                {author.name}
+                {author?.name}
               </h4>
             </Link>
 
@@ -118,7 +116,7 @@ function ThreadCard({
           {comments.slice(0, 2).map((comment, index) => (
             <Image
               key={index}
-              src={comment.author.image}
+              src={comment.author?.image}
               alt={`user_${index}`}
               width={24}
               height={24}
